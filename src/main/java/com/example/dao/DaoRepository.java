@@ -13,7 +13,7 @@ public class DaoRepository {
     private EntityManager entityManager;
 
     public List<String> getProductName(String name) {
-        return entityManager.createQuery("SELECT o.productName FROM Orders as o JOIN Customers as c ON o.id = c.id where lower (c.name) = lower(:name)", String.class)
+        return entityManager.createQuery("SELECT o.productName FROM Orders as o JOIN Customers as c ON o.customers.id = c.id where lower (c.name) = lower(:name)", String.class)
                 .setParameter("name", name)
                 .getResultList();
     }

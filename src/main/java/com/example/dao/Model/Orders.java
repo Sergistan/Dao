@@ -20,7 +20,8 @@ public class Orders {
     @Column
     private Date date;
 
-    @ManyToOne()
+    @ManyToOne
+    @JoinColumn (name = "customer_id")
     private Customers customers;
 
     @Column(name = "product_name")

@@ -11,8 +11,9 @@ CREATE table orders
 (
     id           BIGSERIAL PRIMARY KEY,
     date        timestamp with time zone,
-    customer_id int not null REFERENCES customers (id),
+    customer_id int not null,
     product_name          VARCHAR(15),
-    amount int
+    amount int,
+    foreign key (customer_id) references customers (id)
 );
 
